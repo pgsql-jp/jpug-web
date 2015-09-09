@@ -306,7 +306,8 @@ EMBED_JS;
         if ($params['minor'] != null) {
             $major1 = $params['major1'];
             $major2 = $params['major2'];
-            self::redirect('/'. $major1 . '.' . $major2 . '/' . 
+            self::redirect(self::URL_DOCBASE .
+                '/' . $major1 . '.' . $major2 .
                 $section . $file);
         }
         // check contents exists
