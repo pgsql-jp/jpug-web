@@ -52,7 +52,7 @@ class DocFilter
     public static function redirect($path)
     {
         header('Location: ' . $path);
-        var_dump('Redirect:' . $path);
+        var_dump('Redirect: ' . $path);
         exit;
     }
 
@@ -215,7 +215,7 @@ EMBED_JS;
         if (empty($this->versionInfos)) {
             throw new Exception('Invalid versionInfo', self::ERR_INVALID);
         }
-        $top = array_slice($this->versionInfos, -1, 1);
+        $top = array_slice($this->versionInfos, 0, 1);
         return $top[0];
     }
 
