@@ -92,6 +92,7 @@ h1.TITLE {clear:both;}
   float:right;
   margin-top:-0.2em;
   margin-bottom:0.5em;
+  width: auto;
   padding:0.4em 1em;
   border:solid 1px #e0e0e0;
   border-radius:0.5em;
@@ -110,6 +111,9 @@ h1.TITLE {clear:both;}
 }
 .versions .list {
   display:none;
+}
+.versions .list-toggle {
+  display:inline;
 }
 .versions .me {
   padding:0 0.2em;
@@ -139,7 +143,7 @@ CUSTOM_CSS;
 <script type="text/javascript"><!--
   $(function(){
       $(".versions .label").bind("click", function(){
-          $(".versions .list").toggle();
+          $(".versions .list").toggleClass("list-toggle");
       })
   });
 --></script>
