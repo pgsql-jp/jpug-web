@@ -167,7 +167,11 @@ EMBED_JS;
 
         $major1 = (int)$matchs[1];
         $major2 = (int)$matchs[2];
-        $minor = (int)$matchs[3];
+        if (isset($matchs[3])) {
+            $minor = (int)$matchs[3];
+        } else {
+            $minor = 0;
+        }
         $ver_id = self::genVersionId($major1, $major2);
 
         $info = array(
