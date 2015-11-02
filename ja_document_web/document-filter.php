@@ -131,6 +131,19 @@ h1.TITLE {clear:both;}
 .versions .unsup a {
   color:#aaa;
 }
+
+@media print {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:visited {
+    color: inherit;
+  }
+  .NAVHEADER, .versions, .NAVFOOTER {
+    display: none;
+  }
+}
 --></style>
 CUSTOM_CSS;
         return $customCss;
