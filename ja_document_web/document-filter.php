@@ -163,6 +163,39 @@ CUSTOM_CSS;
 EMBED_JS;
         return $embedJs;
     }
+
+    public static function getEmbedHeaderCss()
+    {
+        $path = dirname(__FILE__) . '/document-header.css';
+        if (file_exists($path)) {
+            $con = file_get_contents($path);
+        } else {
+            $con = '';
+        }
+        return $con;
+    }
+
+    public static function getEmbedHeaderHtml()
+    {
+        $path = dirname(__FILE__) . '/document-header.html';
+        if (file_exists($path)) {
+            $con = file_get_contents($path);
+        } else {
+            $con = '';
+        }
+        return $con;
+    }
+
+    public static function getEmbedFooterHtml()
+    {
+        $path = dirname(__FILE__) . '/document-footer.html';
+        if (file_exists($path)) {
+            $con = file_get_contents($path);
+        } else {
+            $con = '';
+        }
+        return $con;
+    }
   
     public function getDocVersionInfo($dir, $name)
     {
@@ -425,18 +458,26 @@ EMBED_JS;
             '<span class="label">他のバージョンの文書</span>' .
             '<span class="list">： ' . implode(' | ', $items) . '</span>' .
             '</div>';
+        $header_css = $this->getEmbedHeaderCss();
+        $header_html = $this->getEmbedHeaderHtml();
+        $footer_html = $this->getEmbedFooterHtml();
 
         $charset = $this->getContentCharset($params);
         if ($charset != 'UTF-8') {
             $snippet = mb_convert_encoding($snippet, $charset, 'UTF-8');
+            $header_css = mb_convert_encoding($header_css, $charset, 'UTF-8');
+            $header_html = mb_convert_encoding($header_html, $charset, 'UTF-8');
+            $footer_html = mb_convert_encoding($footer_html, $charset, 'UTF-8');
         }
 
         $js = $this->getEmbedJs();
         $css = $this->additionalCss();
         
         // embemd snippet
-        $data = preg_replace('~(</head.*?>)~isD', $css . $js . '$1', $data, 1);
+        $data = preg_replace('~(</head.*?>)~isD', $header_css . $css . $js . '$1', $data, 1);
+        $data = preg_replace('~(<body.*?>)~isD', '$1' . $header_html, $data, 1);
         $data = preg_replace('~(<h1.*?>)~isD', $snippet . '$1', $data, 1);
+        $data = preg_replace('~(</body.*?>)~isD', $footer_html . '$1', $data, 1);
 
         return $data;
     }
