@@ -474,9 +474,9 @@ EMBED_JS;
         $css = $this->additionalCss();
         
         // embemd snippet
+        $headpart = $header_html . $snippet;
         $data = preg_replace('~(</head.*?>)~isD', $header_css . $css . $js . '$1', $data, 1);
-        $data = preg_replace('~(<body.*?>)~isD', '$1' . $header_html, $data, 1);
-        $data = preg_replace('~(<h1.*?>)~isD', $snippet . '$1', $data, 1);
+        $data = preg_replace('~(<body.*?>)~isD', '$1' . $headpart, $data, 1);
         $data = preg_replace('~(</body.*?>)~isD', $footer_html . '$1', $data, 1);
 
         return $data;
