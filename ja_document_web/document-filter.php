@@ -164,9 +164,14 @@ EMBED_JS;
         return $embedJs;
     }
 
-    public static function getEmbedHeaderCss()
+    public static function getEmbedPart($type)
     {
-        $path = dirname(__FILE__) . '/document-header.css';
+        $files = array(
+            'header_css' => 'document-header.css',
+            'header_html' => 'document-header.html',
+            'footer_html' => 'document-footer.html',
+        );
+        $path = dirname(__FILE__) . '/' . $files[$type];
         if (file_exists($path)) {
             $con = file_get_contents($path);
         } else {
@@ -175,28 +180,6 @@ EMBED_JS;
         return $con;
     }
 
-    public static function getEmbedHeaderHtml()
-    {
-        $path = dirname(__FILE__) . '/document-header.html';
-        if (file_exists($path)) {
-            $con = file_get_contents($path);
-        } else {
-            $con = '';
-        }
-        return $con;
-    }
-
-    public static function getEmbedFooterHtml()
-    {
-        $path = dirname(__FILE__) . '/document-footer.html';
-        if (file_exists($path)) {
-            $con = file_get_contents($path);
-        } else {
-            $con = '';
-        }
-        return $con;
-    }
-  
     public function getDocVersionInfo($dir, $name)
     {
         $path = $dir . $name;
@@ -458,26 +441,29 @@ EMBED_JS;
             '<span class="label">他のバージョンの文書</span>' .
             '<span class="list">： ' . implode(' | ', $items) . '</span>' .
             '</div>';
-        $header_css = $this->getEmbedHeaderCss();
-        $header_html = $this->getEmbedHeaderHtml();
-        $footer_html = $this->getEmbedFooterHtml();
+        $out = array(
+            'snippet' => $snippet,
+            'header_css' => $this->getEmbedPart('header_css'),
+            'header_html' => $this->getEmbedPart('header_html'),
+            'footer_html' => $this->getEmbedPart('footer_html'),
+        );
 
         $charset = $this->getContentCharset($params);
         if ($charset != 'UTF-8') {
-            $snippet = mb_convert_encoding($snippet, $charset, 'UTF-8');
-            $header_css = mb_convert_encoding($header_css, $charset, 'UTF-8');
-            $header_html = mb_convert_encoding($header_html, $charset, 'UTF-8');
-            $footer_html = mb_convert_encoding($footer_html, $charset, 'UTF-8');
+            mb_convert_variables($charset, 'UTF-8', $out);
         }
 
         $js = $this->getEmbedJs();
         $css = $this->additionalCss();
         
         // embemd snippet
-        $headpart = $header_html . $snippet;
-        $data = preg_replace('~(</head.*?>)~isD', $header_css . $css . $js . '$1', $data, 1);
-        $data = preg_replace('~(<body.*?>)~isD', '$1' . $headpart, $data, 1);
-        $data = preg_replace('~(</body.*?>)~isD', $footer_html . '$1', $data, 1);
+        $headpart = $out['header_html'] . $out['snippet'];
+        $data = preg_replace('~(</head.*?>)~isD',
+            $out['header_css'] . $css . $js . '$1', $data, 1);
+        $data = preg_replace('~(<body.*?>)~isD',
+            '$1' . $headpart, $data, 1);
+        $data = preg_replace('~(</body.*?>)~isD',
+            $out['footer_html'] . '$1', $data, 1);
 
         return $data;
     }
