@@ -25,14 +25,14 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 
 会議室での表示名（自分の名前）を入力し、[Join meeting] をクリック
 
-![5191f446.png](7958e846-237f-42b4-b166-d471cf84dca6/5191f446.png)
+![1da0fb79.png](7958e846-237f-42b4-b166-d471cf84dca6/1da0fb79.png)
 
 
 ### パスワード設定
 
 右下のオレンジ色のホームベースのようなアイコン(Security Options)をクリックし、
 
-![ef9b6614.png](7958e846-237f-42b4-b166-d471cf84dca6/ef9b6614.png)
+![7c4b46be.png](7958e846-237f-42b4-b166-d471cf84dca6/7c4b46be.png)
 
 "Security Options" ダイアログが現れるので、"Add パスワード" をクリックし、
 適切にパスワード(ここでは、jpug/1008c0)を入力して "Add" をクリックする。
@@ -52,7 +52,7 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 
 例えば、[Share meeting invitation] から[G](Google Email)をクリックすると次のようなメッセージが挿入される（ブラウザでGmailにログインしている場合）。
 
-![afb490b2.png](7958e846-237f-42b4-b166-d471cf84dca6/afb490b2.png)
+![6e7b8481.png](7958e846-237f-42b4-b166-d471cf84dca6/6e7b8481.png)
 
 ダイアログは右上の [x] をクリックして閉じる。
 
@@ -76,7 +76,7 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 
 一旦カメラが停止するので、下中央のカムアイコンをクリックして開始する。
 
-![86fd292c.png](7958e846-237f-42b4-b166-d471cf84dca6/86fd292c.png)
+![5a5a07b8.png](7958e846-237f-42b4-b166-d471cf84dca6/5a5a07b8.png)
 
 共有の終了は、もう一度共有アイコンをクリックする。
 
