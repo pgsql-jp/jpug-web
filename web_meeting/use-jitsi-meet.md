@@ -28,7 +28,7 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 ![1da0fb79.png](7958e846-237f-42b4-b166-d471cf84dca6/1da0fb79.png)
 
 
-### パスワード設定
+### パスワード設定の場合
 
 右下のオレンジ色のホームベースのようなアイコン(Security Options)をクリックし、
 
@@ -40,6 +40,21 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 ![a0111d3e.png](7958e846-237f-42b4-b166-d471cf84dca6/a0111d3e.png)
 
 右上の [x] をクリックして閉じると、Security Optionsアイコンは緑色に変わる。
+
+
+### ロビー設定の場合
+
+右下のホームベースのようなアイコン(Security Options)をクリックして、"Security Options" ダイアログが現れたら、"Enable lobby" の右のボタンをクリックして有効にする（緑色になる）。
+
+![27423112.png](7958e846-237f-42b4-b166-d471cf84dca6/27423112.png)
+
+右上の [x] をクリックして閉じると、Security Optionsアイコンは緑色に変わる。
+
+ロビー設定の場合、参加者が入室しようとすると参加済の画面に許可を求めるプロンプトが表示されるので、"Allow" をクリックして許可すると参加できる。
+
+![6d82f3cc.png](7958e846-237f-42b4-b166-d471cf84dca6/6d82f3cc.png)
+
+
 
 
 ### 会議情報通知
@@ -64,9 +79,18 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 
 ![27148a65.png](7958e846-237f-42b4-b166-d471cf84dca6/8ca67d21.png)
 
+### パスワード設定がある場合
+
 パスワードが設定されている場合は、要求プロンプトが出るので決められたパスワードを入力して[OK] をクリックする。
 
 ![b415668c.png](7958e846-237f-42b4-b166-d471cf84dca6/d2304ea3.png)
+
+### ロビー設定がある場合
+
+参加者が承認ボタンを押すのを待つ。
+
+![346fdfde.png](7958e846-237f-42b4-b166-d471cf84dca6/346fdfde.png)
+
 
 以上で、参加済。
 
@@ -119,4 +143,3 @@ Jitsi MeetのURL: [https://meet.jit.si/](https://meet.jit.si/) をブラウザ�
 
 なお、このダイアログは、右下の"More Actions" アイコンをクリックしてプルアップメニューからも選択できる。
 ![ac49a295.png](7958e846-237f-42b4-b166-d471cf84dca6/ac49a295.png)
-
